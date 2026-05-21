@@ -1,78 +1,91 @@
-# Lancera — AI-Powered Freelancer Marketplace
+# 🚀 Lancera — AI-Powered Freelancer Marketplace
 
-> AI + Reverse Auction + Freelance = Smart Hiring System  
-> Built by Green Sync Innovators | Hack Wise 2.0 | Table 07
+Lancera is an innovative, AI-driven freelancer marketplace built around a **Reverse Auction** system. Designed to optimize hiring for clients and provide fair opportunities for freelancers, Lancera integrates intelligent AI vetting, smart bidding feedback, and a closed community ecosystem. 
 
-## Quick Start
+> **Hackathon Details**: Built by *Green Sync Innovators* for *Hack Wise 2.0* (Table 07)
 
-### Prerequisites
-- Node.js 18+
-- MongoDB (local or Atlas)
+---
 
-### 1. Setup MongoDB
-Start MongoDB locally or update `backend/.env` with your MongoDB URI.
+## 🌟 Key Features
 
-### 2. Start the App
-```bash
-# Double-click start.bat OR run manually:
+*   **📉 Reverse Auction Bidding**: A unique live auction system where freelancers bid down to offer competitive rates, ensuring cost-effective hiring.
+*   **🧠 AI Quiz Vetting**: Automated 5-question AI-generated quizzes (7 seconds each) based on project requirements to dynamically verify freelancer skills before they can bid.
+*   **🔒 Closed Community Circle**: Private, high-quality project bidding restricted via invite codes.
+*   **💡 Smart Bid Feedback**: Real-time feedback (HIGH/FAIR/LOW) and winning probability calculations provided to freelancers before submitting a bid.
+*   **🏆 AI Best Freelancer Tag**: Weighted recommendation scores to highlight the most qualified candidates for clients.
+*   **🚦 Project Health Status**: AI-monitored project health dashboards with Green/Yellow/Red indicators.
+*   **💳 Phase-wise Payments**: Milestone-based secure payment gateways with remove/replace functionality.
+*   **🤖 AI Project Creation**: Automatic generation of project descriptions, required skills, budget estimates, and phases using AI.
+*   **📦 SaaS Subscription Model**: A flat-fee subscription system with zero commission per project.
 
-# Terminal 1 - Backend
-cd backend
-npm install
-npm run dev
+---
 
-# Terminal 2 - Frontend
-cd frontend
-npm install
-npm start
-```
+## 🛠️ Technology Stack
 
-### 3. Open
-- Frontend: http://localhost:3000
-- Backend API: http://localhost:5000/api
-- Health check: http://localhost:5000/api/health
+| Layer | Technology | Description |
+| :--- | :--- | :--- |
+| **Frontend** | React 18, Tailwind CSS, Framer Motion | Dynamic, responsive UI with smooth animations. |
+| **Backend** | Node.js, Express.js | High-performance scalable REST API. |
+| **Database** | MongoDB (Mongoose) | Flexible NoSQL document database. |
+| **AI/LLM** | OSM API (OpenAI-compatible) | Powers AI project generation and quiz vetting. |
+| **Real-Time** | Socket.io | Live reverse auction WebSocket pipelines. |
+| **Payments** | Razorpay | Seamless financial processing (Test Mode). |
+| **Auth** | JWT, bcrypt, OTP | Secure encrypted sessions and email verification. |
 
-## Tech Stack
-| Layer | Technology |
-|-------|-----------|
-| Frontend | React 18 + Tailwind CSS + Framer Motion |
-| Backend | Node.js + Express.js |
-| Database | MongoDB (Mongoose) |
-| AI/LLM | OSM API (OpenAI-compatible) |
-| Real-Time | Socket.io |
-| Payments | Razorpay (test mode) |
-| Auth | JWT + bcrypt + OTP |
+---
 
-## Key Features
-1. **Reverse Auction Bidding** — Freelancers bid DOWN in live auction
-2. **AI Quiz Vetting** — 5 questions, 7 sec each, generated from project
-3. **Closed Community Circle** — Private bidding with invite codes
-4. **Smart Bid Feedback** — HIGH/FAIR/LOW + winning % before submitting
-5. **AI Best Freelancer Tag** — Weighted recommendation score
-6. **Project Health Status** — Green/Yellow/Red AI monitoring
-7. **Phase-wise Payments** — Milestone-based with remove/replace
-8. **AI Project Creation** — Auto description, budget, skills, phases
-9. **SaaS Subscription** — Flat fee, no commission
+## 🚀 Quick Start & Installation
 
-## API Endpoints
-- `POST /api/auth/signup` — Register
-- `POST /api/auth/verify-otp` — Verify email
-- `POST /api/auth/login` — Login
-- `GET /api/projects` — Browse projects
-- `POST /api/projects` — Create project
-- `POST /api/projects/ai/description` — AI generate description
-- `POST /api/bidding/join/:id` — Join bidding
-- `GET /api/bidding/quiz/:id/start` — Get AI quiz
-- `POST /api/bidding/bid/:id` — Place bid
-- `GET /api/bidding/feedback/:id` — Smart bid feedback
+### 📋 Prerequisites
+*   **Node.js 18 or higher**
+*   **MongoDB** (Local instance or Atlas connection string)
 
-## Environment Variables (backend/.env)
-```
-PORT=5000
-MONGODB_URI=mongodb://localhost:27017/lancera
-JWT_SECRET=lancera_jwt_secret_key_2024_hackathon
-OSM_API_KEY=osm_yAf11sOG77tZzWbd19NiXFATr6sOhgRztCX6mBzS
-OSM_BASE_URL=https://api.osmapi.com/v1
-RAZORPAY_KEY_ID=rzp_test_lancera
-CLIENT_URL=http://localhost:3000
-```
+### 📥 Setup Instructions
+
+1.  **Configure Environment Variables**: Update `backend/.env` with your MongoDB URI and API keys.
+    ```env
+    PORT=5000
+    MONGODB_URI=mongodb://localhost:27017/lancera
+    JWT_SECRET=your_jwt_secret_key
+    OSM_API_KEY=your_osm_api_key
+    OSM_BASE_URL=https://api.osmapi.com/v1
+    RAZORPAY_KEY_ID=your_razorpay_test_key
+    CLIENT_URL=http://localhost:3000
+    ```
+
+2.  **Start the Application**:
+    You can simply double-click `start.bat` on Windows, OR run manually:
+
+    **Terminal 1 (Backend)**:
+    ```bash
+    cd backend
+    npm install
+    npm run dev
+    ```
+
+    **Terminal 2 (Frontend)**:
+    ```bash
+    cd frontend
+    npm install
+    npm start
+    ```
+
+3.  **Access the Application**:
+    *   **Frontend UI**: `http://localhost:3000`
+    *   **Backend API**: `http://localhost:5000/api`
+    *   **Health Check**: `http://localhost:5000/api/health`
+
+---
+
+## 📡 Core API Endpoints
+
+*   `POST /api/auth/signup` — Register User
+*   `POST /api/auth/verify-otp` — Verify Email OTP
+*   `POST /api/auth/login` — Authenticate & get JWT
+*   `GET /api/projects` — Browse Active Projects
+*   `POST /api/projects` — Create New Project
+*   `POST /api/projects/ai/description` — AI Generate Description
+*   `POST /api/bidding/join/:id` — Join Bidding Room
+*   `GET /api/bidding/quiz/:id/start` — Initiate AI Vetting Quiz
+*   `POST /api/bidding/bid/:id` — Place Reverse Bid
+*   `GET /api/bidding/feedback/:id` — Get Smart Bid Feedback
